@@ -21,4 +21,5 @@ map <- function(country, x){
   text(122.08, 13.22, "Projection: Geographic Coordinate System: WGS 1984 Data Source: GADM.org", adj = c(0, 0), cex = 0.7, col = "grey20")
 }
 
+# test:
 map("Belgium",1)

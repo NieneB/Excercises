@@ -19,6 +19,7 @@ is.leap <- function(year) {
   return(out)
 }
 
+# test:
 is.leap(2000)
 is.leap(2002)
 is.leap("niene")
@@ -28,6 +29,3 @@ is.leap(1652)
 is.leap(1999)
 is.leap(1998)
 is.leap(2)
-
-
-
