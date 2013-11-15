@@ -36,8 +36,3 @@ plot(samples, add = TRUE, col = "green", pch = 19, cex = 1)
 pointLabel(samples$x, samples$y, as.character(specify_decimal(samples$anom.2000.03,2)),cex = 0.7, allowSmallOverlap = FALSE)
 plot(kenya, add = TRUE)
 
-
-
-
-
-
