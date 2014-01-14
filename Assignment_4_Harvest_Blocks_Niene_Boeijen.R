@@ -3,6 +3,7 @@
 # 15-11-13
 # required: rasta package
 ################################################################
+
 library(rasta)
 
 # 0. Downloading data and Preperation.
@@ -20,7 +21,7 @@ all_rd$datetime <- as.POSIXct(paste (paste(all_rd$year, all_rd$month, all_rd$day
                 ,paste(all_rd$hr,all_rd$min,all_rd$sec, sep=":")), tz = "Europe/Andorra")
 all_rd <- as.data.frame(all_rd)
 all_rd <- all_rd[order(all_rd$datetime),]
-sp_lines_df <- CreateHarvestTracks(all_rd, prj_string_RD)
+sp_lines_df <- CreateHarvestTracks(all_rd, prj_string_RD)   # where is the explanation of this function?
 
 
 # 1. Create harvest blocks
@@ -32,7 +33,7 @@ sp_polys <- gBuffer(sp_polys, byid=T,id=rownames(sp_polys), width = 2.0)
 sp_polys <- gBuffer(sp_polys, byid=T,id=rownames(sp_polys), width = -2.0)
 sp_polys_df <- SpatialPolygonsDataFrame(sp_polys, sp_lines_df@data)
 
-tmp_lines <- sp_lines_df@lines # just a list with geometries
+tmp_lines <- sp_lines_df@lines # just a list with geometries /// WHAT DO YOU DO HERE?
 for (i in 2:length(sp_lines_df)){
   tmline <- sp_lines_df[i,]$datim
   for (j in 1:(i-1)){
@@ -65,7 +66,7 @@ sp_polys_df$YieldHa <- sp_polys_df$loads/sp_polys_df$Ha
 
 # 4. Plot yield per hactare for each block
 spplot(sp_polys_df, zcol="YieldHa", colorkey=T, zlim=c(0,100),
-        pch=19,cex=0.25, main="Yield per Ha per block")
+        pch=19,cex=0.25, main="Yield per Ha per block")   # what about the options used?
 
 # 5. Export to google earth
 setwd("/My Documents/R_Lesson_1/Lesson_4")
